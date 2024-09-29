@@ -1,0 +1,653 @@
+/* Universal styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Header styles */
+  .header {
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    transition: background-color 0.4s ease-in-out, padding 0.4s ease;
+    height: 100px;
+  }
+  /* Nav Bar */
+  .navbar {
+    margin-left: 150px;
+  }
+  .navbar-list {
+    display: flex;
+    gap: 35px;
+    
+  }
+  
+  .navbar-link {
+    color: #333;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    top: -45px;
+    
+  }
+  
+  .navbar-link:hover {
+    color: #007bff;
+    transform: translateY(-3px);
+  }
+  
+  .navbar-link ion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-link:hover ion-icon {
+    transform: rotate(20deg);
+  }
+  /* Active class styling */
+  .navbar-link.active {
+    color: red; /* Qizil rangdagi active holat */
+    font-weight: bold; /* Matnni qalin qilish */
+    border-bottom: 2px solid red; /* Aktiv element uchun pastdan chiziq */
+    transition: color 0.3s ease, border-bottom 0.3s ease; /* Yumshoq o'tish */
+    transition: all 0.3s ease;
+  }
+  
+  
+  
+  /* Logo Image */
+  .logo-img {
+    border-radius: 50%;
+    width: 90px; /* Adjust the logo size */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Menu icon for mobile */
+  .menu-icon {
+    display: none;
+    font-size: 3rem;
+    cursor: pointer;
+    color: #007bff;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+  
+  @media (max-width: 957px) {
+    .navbar-list {
+      flex-direction: column;
+      background-color: #001f3f;
+      position: fixed;
+      top: 0;
+      left: -100vh;
+      height: 100vh;
+      width: 250px;
+      transition: left 0.3s ease;
+      padding-top: 60px;
+      z-index: 99;
+    }
+  
+    .navbar-list.open {
+      left: 0;
+    }
+  
+    .navbar-link {
+      color: #fff;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  
+    .menu-icon{
+        display: block;
+    }
+  }
+
+/* Search and Filter Section */
+.search-filter-section {
+    
+    padding: 40px 0;
+    background-color: #f0f2f5;
+  }
+  
+  .search-filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Search va Filter orasidagi bo'sh joy */
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Search Container Styles */
+  .search-container {
+    flex: 2;
+    margin-left: 40px;
+    
+
+  }
+  
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    padding: 5px 10px;
+    width: 100%;
+    max-width: 500px; /* Search kengligi */
+    transition: box-shadow 0.3s ease; /* Hover uchun yumshoq transition */
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  .search-btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .search-btn ion-icon {
+    font-size: 1.5rem;
+  }
+  
+  /* Search Form Hover Effekti */
+  .search-form:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Hoverda shadow qo'shiladi */
+  }
+  
+  .search-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.1); /* Hoverda tugma kattalashadi */
+  }
+  
+  /* Filter Container Styles */
+  .filter-container {
+    flex: 1;
+    position: relative; /* Filter joylashuvi */
+  }
+  
+  .filter-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .filter-btn ion-icon {
+    font-size: 1.5rem;
+  }
+  
+  /* Filter Tugma Hover Effekti */
+  .filter-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Hoverda kattalashadi */
+  }
+  
+  /* Filter Options with Transition */
+  .filter-options {
+    position: absolute;
+    top: 60px; /* Tugmadan keyin paydo bo'ladi */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Boshida ko'rinmaydi */
+    transform: scaleY(0); /* Boshida kichraytirilgan */
+    transform-origin: top; /* Yuqoridan ochiladi */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Filter ochilishida animatsiya */
+    z-index: 10; /* Oldingi bo'limlar ustida paydo bo'ladi */
+  }
+  
+  .filter-options.open {
+    opacity: 1; /* Ko'rinadi */
+    transform: scaleY(1); /* To'liq ochiladi */
+  }
+  
+  /* Filter Group Styling */
+  .filter-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .filter-group label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .filter-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .apply-filter-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Apply Button Hover Effekti */
+  .apply-filter-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .search-filter-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .search-form, .filter-btn {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .filter-options {
+      width: 100%;
+      top: 70px; /* Kichik ekranlar uchun filter joylashuvi */
+    }
+  }
+
+/* Universal styles */
+/* Text Section with full-width background image */
+.enhanced-info-section {
+    margin-top: 80px;
+    padding: 80px 20px;
+    background-color: #e0f7fa;
+    overflow: hidden;
+  }
+  
+  .info-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1.5s ease-out forwards;
+  }
+  
+  .text-content {
+    max-width: 600px;
+    animation: fadeInLeft 1.5s ease-out forwards;
+  }
+  
+  .info-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #00796b; /* Sof yashil rang */
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  
+  .info-text {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
+    font-style: italic;
+  }
+  
+  .info-subtitle {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .info-small-text {
+    font-size: 1.1rem;
+    color: #444;
+    margin-top: 10px;
+    background-color: #fff9c4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-content {
+    max-width: 500px;
+    transform: translateX(100px);
+    animation: fadeInRight 1.5s ease-out forwards;
+  }
+  
+  .info-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .info-image:hover {
+    transform: scale(1.05);
+  }
+
+  .section-title {
+    font-size: 0.5rem; /* Standart font-size */
+    text-align: center;
+    color: #007bff;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  
+  
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .info-content {
+      flex-direction: column;
+    }
+  
+    .info-title {
+      
+      font-size: 2rem;
+    }
+  
+    .info-subtitle {
+      font-size: 1.8rem;
+    }
+  
+    .info-text {
+      font-size: 1.2rem;
+    }
+  
+    .image-content {
+      transform: translateX(0);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .info-title {
+      font-size: 2rem;
+    }
+  
+    .info-subtitle {
+      font-size: 1.5rem;
+    }
+  
+    .info-text {
+      font-size: 1rem;
+    }
+  
+    .info-image {
+      border-radius: 10px;
+    }
+  }
+  
+  /* ANIMATIONS */
+  
+  /* Fade In Up - Sektsiyaning yuqoriga chiqishi */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Fade In Left - Matnning chapdan chiqishi */
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Fade In Right - Rasmning o'ngdan chiqishi */
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+
+/* Car Listing Section */
+.car-listing-section {
+  padding: 60px 20px;
+  background-color: #e3f2fd;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Car Cards Container */
+.car-cards-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Individual Car Card */
+.car-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 100%;
+  max-width: 380px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.car-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Car Image and Icons */
+.car-image-container {
+  position: relative;
+}
+
+.car-main-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Like va View Iconlari rasm ichida */
+.card-icons {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.like-icon, .view-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.like-icon:hover, .view-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Slayder buttonlari */
+.swiper-button-next, .swiper-button-prev {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  color: #0056b3;
+}
+
+/* Car Details */
+.car-details {
+  padding: 20px;
+}
+
+.car-title {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.car-price {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.4rem;
+  color: #c93200;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.car-year {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Hidden details */
+.hidden-details {
+  max-height: 0; /* Boshlanishda ko'rinmaydi */
+  overflow: hidden;
+  transition: max-height 0.6s ease, padding 0.6s ease; /* Transition qo'shildi */
+  padding: 0;
+}
+
+.hidden-details.open {
+  max-height: 500px; /* Ko'rinish uchun max height katta qiymat */
+  padding: 15px 0; /* Qo'shimcha bo'sh joy */
+}
+
+.car-info {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.car-info li {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.car-description {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+  
+/* Details button */
+.details-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.details-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+  
+  

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Car</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/add-car.css">
+
+  <!-- swiper css -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Ionicons for icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4">
+      <a href="index.html" class="logo">
+        <img src="./image/Logo1.png" alt="AvtoBozor Logo" class="logo-img">
+      </a>
+      <nav class="navbar">
+        <ul class="navbar-list flex space-x-6 text-lg">
+          <li><a href="index.html" class="navbar-link flex items-center" id="home"><ion-icon name="home-outline" class="mr-1"></ion-icon> Bosh sahifa</a></li>
+          <li><a href="index.html/#cars" class="navbar-link flex items-center" id="cars"><ion-icon name="car-outline" class="mr-1"></ion-icon> Avtomobillar</a></li>
+          <li><a href="parts.html" class="navbar-link flex items-center" id="parts"><ion-icon name="build-outline" class="mr-1"></ion-icon> Avtozapchast</a></li>
+          <li><a href="addcar.html" class="navbar-link flex items-center" id="addCar"><ion-icon name="add-circle-outline" class="mr-1"></ion-icon> Mashina qo'shish</a></li>
+          <li><a href="login.html" class="navbar-link flex items-center" id="login-link">
+            <ion-icon name="log-in-outline" class="mr-1"></ion-icon> Login
+          </a></li>
+          <li><a href="#" id="logout-link" class="navbar-link" style="display: none;">Logout</a></li>
+          
+          <li><a href="contact.html" class="navbar-link flex items-center" id="contact"><ion-icon name="call-outline" class="mr-1"></ion-icon> Bog'lanish</a></li>
+        </ul>
+      </nav>
+      <!-- Menu icon for mobile -->
+      <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+    </div>
+  </header>
+
+  <!-- Mashina qo'shish bo'limi -->
+  <section class="add-car-section">
+    <div class="container">
+      <h2 class="section-title">Mashina qo'shish</h2>
+      <form action="#" method="post" enctype="multipart/form-data" class="add-car-form" onsubmit="handleFormSubmit(event)">
+
+        <!-- Model va Marka -->
+        <div class="form-group">
+          <label for="model">Model:</label>
+          <input type="text" id="model" name="model" placeholder="Mashina modeli (masalan: Toyota Corolla)" required>
+        </div>
+
+        <!-- Yil va Narx -->
+        <div class="form-group">
+          <label for="year">Yil:</label>
+          <input type="number" id="year" name="year" placeholder="Mashina ishlab chiqarilgan yili (masalan: 2020)" required>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Narx:</label>
+          <input type="number" id="price" name="price" placeholder="Mashina narxi ($)" required>
+        </div>
+
+        <!-- Yurgan masofa -->
+        <div class="form-group">
+          <label for="mileage">Yurgan masofa (km):</label>
+          <input type="number" id="mileage" name="mileage" placeholder="Mashinaning yurgan masofasi (km)" required>
+        </div>
+
+        <!-- Yoqilg'i turi va Rang -->
+        <div class="form-group">
+          <label for="fuel-type">Yoqilg'i turi:</label>
+          <select id="fuel-type" name="fuel-type" required>
+            <option value="benzin">Benzin</option>
+            <option value="dizel">Dizel</option>
+            <option value="gaz">Gaz</option>
+            <option value="elektr">Elektr</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="color">Mashina rangi:</label>
+          <input type="text" id="color" name="color" placeholder="Mashinaning rangi (masalan: Oq)" required>
+        </div>
+
+        <!-- Sotuvchi ma'lumotlari -->
+        <div class="form-group">
+          <label for="seller-name">Sotuvchi ismi:</label>
+          <input type="text" id="seller-name" name="seller-name" placeholder="Sotuvchi ismi" required>
+        </div>
+
+        <div class="form-group">
+          <label for="seller-phone">Sotuvchi telefoni:</label>
+          <input type="text" id="seller-phone" name="seller-phone" placeholder="Sotuvchi telefoni (masalan: +998 90 123 45 67)" required>
+        </div>
+
+        <!-- Shahar -->
+        <div class="form-group">
+          <label for="city">Shahar:</label>
+          <input type="text" id="city" name="city" placeholder="Shahar nomi (masalan: Toshkent)" required>
+        </div>
+
+        <!-- Rasm yuklash -->
+        <div class="form-group">
+          <label for="car-images">Mashina rasmlari:</label>
+          <input type="file" id="car-images" name="car-images[]" accept="image/*" multiple required>
+        </div>
+
+        <!-- Qo'shimcha ma'lumotlar -->
+        <div class="form-group">
+          <label for="description">Qo'shimcha ma'lumotlar:</label>
+          <textarea id="description" name="description" rows="4" placeholder="Mashina haqida qo'shimcha ma'lumotlar" required></textarea>
+        </div>
+
+        <!-- Submit tugmasi -->
+        <button type="submit" class="btn submit-btn">E'lonni qo'shish</button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal oynasi -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <h2>Login qilish kerak</h2>
+      <p>Siz hali login qilmagansiz. E'lon qo'shish uchun iltimos, avval login qiling.</p>
+      <button class="btn login-btn" onclick="redirectToLogin()">Login qilish</button>
+    </div>
+  </div>
+
+  <!-- Muvaffaqiyatli e'lon qo'shildi modal oynasi -->
+  <div class="modal" id="success-modal">
+    <div class="modal-content">
+      <h2>Muvaffaqiyatli e'lon qo'shildi!</h2>
+      <p>Sizning mashina e'loningiz muvaffaqiyatli qo'shildi.</p>
+      <button class="btn close-btn" onclick="closeModal('success-modal')">Yopish</button>
+    </div>
+  </div>
+
+
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Swipper script -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Custom JS -->
+   <script src="./js/add-car.js"></script>
+  <script src="./js/home.js"></script>
+  <!-- Login LogOut-->
+  <script src="./js/login-logout.js"></script>
+  
+</body>
+
+</html>

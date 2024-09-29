@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AvtoBozor - Avtomashinalar Oldi-Sotdi</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/home.css">
+
+  <!-- swiper css -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!-- Ionicons for icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4">
+      <a href="index.html" class="logo">
+        <img src="./image/Logo1.png" alt="AvtoBozor Logo" class="logo-img">
+      </a>
+      <nav class="navbar">
+        <ul class="navbar-list flex space-x-6 text-lg">
+          <li><a href="index.html" class="navbar-link flex items-center" id="home"><ion-icon name="home-outline" class="mr-1"></ion-icon> Bosh sahifa</a></li>
+          <li><a href="#cars" class="navbar-link flex items-center" id="cars"><ion-icon name="car-outline" class="mr-1"></ion-icon> Avtomobillar</a></li>
+          <li><a href="parts.html" class="navbar-link flex items-center" id="parts"><ion-icon name="build-outline" class="mr-1"></ion-icon> Avtozapchast</a></li>
+          <li><a href="addcar.html" class="navbar-link flex items-center" id="addCar"><ion-icon name="add-circle-outline" class="mr-1"></ion-icon> Mashina qo'shish</a></li>
+          <li><a href="login.html" class="navbar-link flex items-center" id="login-link">
+            <ion-icon name="log-in-outline" class="mr-1"></ion-icon> Login
+          </a></li>
+          <li><a href="#" id="logout-link" class="navbar-link" style="display: none;">Logout</a></li>
+          
+          <li><a href="contact.html" class="navbar-link flex items-center" id="contact"><ion-icon name="call-outline" class="mr-1"></ion-icon> Bog'lanish</a></li>
+        </ul>
+      </nav>
+      <!-- Menu icon for mobile -->
+      <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+    </div>
+  </header>
+
+  <!-- TEXT SECTION -->
+  <section class="enhanced-info-section">
+    <div class="container">
+      <div class="info-content">
+        <div class="text-content">
+          <h2 class="info-title">Bepul e'lon ber</h2>
+          <p class="info-text">Mashina sotmoqchimisiz? Bizning saytimizda mashina e'lonlarini mutlaqo bepul joylashtiring va oson sotib oling!</p>
+          <h3 class="info-subtitle">Oson sotib ol</h3>
+          <p class="info-text">Mashina qidiryapsizmi? Turli xil avtomobillarni ko'rib chiqish va ularni tezda sotib olish imkoniyatidan foydalaning!</p>
+          <p class="info-small-text">Saytimiz Janubiy Koreya bozoriga mo'ljallangan bo'lib, Koreya ichida avtomobil e'lonlarini oson topishingiz mumkin.</p>
+        </div>
+      <div class="image-content">
+        <img src="./image/info-section.png" alt="Mashina e'loni" class="info-image">
+      </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- SEARCH VA FILTER BO'LIMI -->
+  <section class="search-filter-section">
+      <div class="search-filter-container">
+        
+        <!-- Search bo'limi -->
+        <div class="search-container">
+          <form action="#" method="get" class="search-form">
+            <input type="text" class="search-input" placeholder="Mashina nomi yoki brendi" name="search">
+            <button type="submit" class="search-btn">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+          </form>
+        </div>
+  
+        <!-- Filter bo'limi -->
+        <div class="filter-container">
+          <button class="filter-btn" id="filterToggleBtn">
+            <ion-icon name="options-outline"></ion-icon> Filterni tanlang
+          </button>
+          
+          <!-- Hidden filter options -->
+          <div class="filter-options" id="filterOptions">
+            <div class="filter-group">
+              <label for="category">Kategoriya:</label>
+              <select id="category" class="filter-input">
+                <option value="all">Barchasi</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="coupe">Coupe</option>
+              </select>
+            </div>
+            
+            <div class="filter-group">
+              <label for="price">Narx (USD):</label>
+              <input type="range" id="price" class="filter-input" min="1000" max="100000" step="5000" value="50000">
+              <span id="priceDisplay">$50,000</span>
+            </div>
+            
+            <div class="filter-group">
+              <label for="year">Yil:</label>
+              <input type="number" id="year" class="filter-input" min="2000" max="2024" placeholder="Yilni kiriting">
+            </div>
+            
+            <button class="apply-filter-btn">Filtrni qo'llash</button>
+          </div>
+        </div>
+        
+      </div>
+  </section>
+
+  <!-- CARDS SECTION -->
+  <section class="car-listing-section" id="cars">
+    <div class="container">
+      <h2 class="section-title">Sotuvdagi<br> Avtomobillar</h2>
+      <div class="car-cards-container">
+
+        <!-- Card 1 -->
+        <div class="car-card" onclick="toggleCardDetails(button)">
+          <div class="car-image-container swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slayder rasmlari -->
+              <div class="swiper-slide">
+                <img src="./image/card-cars.png" alt="Toyota Corolla 2020" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/info-section.png" alt="Toyota Corolla 2" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/card-cars.png" alt="Toyota Corolla 3" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/car4.jpg" alt="Toyota Corolla 4" class="car-main-image">
+              </div>
+            </div>
+            
+            <!-- Like va View Iconlari (rasm ichida) -->
+            <div class="card-icons">
+              <div class="stat">
+                <ion-icon name="heart-outline" class="like-icon"></ion-icon> <span class="like-count">24</span>
+              </div>
+              <div class="stat">
+                <ion-icon name="eye-outline" class="view-icon"></ion-icon> <span class="view-count">120</span>
+              </div>
+            </div>
+
+            <!-- Slayder uchun Next/Prev tugmalar -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div class="car-details">
+            <h3 class="car-title">Toyota Corolla</h3>
+            <p class="car-price">$12,500</p>
+            <p class="car-year">2020 yil</p>
+
+            <!-- Hidden details (ochiladigan qismi) -->
+            <div class="hidden-details">
+              <ul class="car-info">
+                <li><strong>Yurgan masofa:</strong> 35,000 km</li>
+                <li><strong>Yoqilg'i turi:</strong> Benzin</li>
+                <li><strong>Transmission:</strong> Avtomat</li>
+                <li><strong>Rang:</strong> Oq</li>
+                <li><strong>Sotuvchi:</strong> Ali Valiyev</li>
+                <li><strong>Telefon:</strong> +998 90 123 45 67</li>
+              </ul>
+              <p class="car-description">Mashina juda yaxshi holatda. O'z vaqtida texnik ko'rikdan o'tgan, yangi shinalar va xizmat ko'rsatish kitobi mavjud.</p>
+            </div>
+            <!-- Button to show/hide more details -->
+          <button class="details-btn" onclick="toggleCardDetails(this)">To'liq ma'lumot</button>
+          </div>
+        </div>
+        <!-- Card 1 -->
+        <div class="car-card" onclick="toggleCardDetails(button)">
+          <div class="car-image-container swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slayder rasmlari -->
+              <div class="swiper-slide">
+                <img src="./image/card-cars.png" alt="Toyota Corolla 2020" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/info-section.png" alt="Toyota Corolla 2" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/card-cars.png" alt="Toyota Corolla 3" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/car4.jpg" alt="Toyota Corolla 4" class="car-main-image">
+              </div>
+            </div>
+            
+            <!-- Like va View Iconlari (rasm ichida) -->
+            <div class="card-icons">
+              <div class="stat">
+                <ion-icon name="heart-outline" class="like-icon"></ion-icon> <span class="like-count">24</span>
+              </div>
+              <div class="stat">
+                <ion-icon name="eye-outline" class="view-icon"></ion-icon> <span class="view-count">120</span>
+              </div>
+            </div>
+
+            <!-- Slayder uchun Next/Prev tugmalar -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div class="car-details">
+            <h3 class="car-title">Toyota Corolla</h3>
+            <p class="car-price">$12,500</p>
+            <p class="car-year">2020 yil</p>
+
+            <!-- Hidden details (ochiladigan qismi) -->
+            <div class="hidden-details">
+              <ul class="car-info">
+                <li><strong>Yurgan masofa:</strong> 35,000 km</li>
+                <li><strong>Yoqilg'i turi:</strong> Benzin</li>
+                <li><strong>Transmission:</strong> Avtomat</li>
+                <li><strong>Rang:</strong> Oq</li>
+                <li><strong>Sotuvchi:</strong> Ali Valiyev</li>
+                <li><strong>Telefon:</strong> +998 90 123 45 67</li>
+                <li><strong>Shaxar:</strong> Seul</li>
+
+              </ul>
+              <p class="car-description">Mashina juda yaxshi holatda. O'z vaqtida texnik ko'rikdan o'tgan, yangi shinalar va xizmat ko'rsatish kitobi mavjud.</p>
+            </div>
+            
+            <!-- Button to show/hide more details -->
+            <button class="details-btn" onclick="toggleCardDetails(this)">To'liq ma'lumot</button>
+          </div>
+        </div>
+
+        <div class="car-card" id="#cars" onclick="toggleCardDetails(button)">
+          <div class="car-image-container swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slayder rasmlari -->
+              <div class="swiper-slide">
+                <img src="./image/card-cars.png" alt="Toyota Corolla 2020" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/info-section.png" alt="Toyota Corolla 2" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./image/card-cars.png" alt="Toyota Corolla 3" class="car-main-image">
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/car4.jpg" alt="Toyota Corolla 4" class="car-main-image">
+              </div>
+            </div>
+            
+            <!-- Like va View Iconlari (rasm ichida) -->
+            <div class="card-icons">
+              <div class="stat">
+                <ion-icon name="heart-outline" class="like-icon"></ion-icon> <span class="like-count">24</span>
+              </div>
+              <div class="stat">
+                <ion-icon name="eye-outline" class="view-icon"></ion-icon> <span class="view-count">120</span>
+              </div>
+            </div>
+
+            <!-- Slayder uchun Next/Prev tugmalar -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+
+          <div class="car-details">
+            <h3 class="car-title">Toyota Corolla</h3>
+            <p class="car-price">$12,500</p>
+            <p class="car-year">2020 yil</p>
+
+            <!-- Hidden details (ochiladigan qismi) -->
+            <div class="hidden-details">
+              <ul class="car-info">
+                <li><strong>Yurgan masofa:</strong> 35,000 km</li>
+                <li><strong>Yoqilg'i turi:</strong> Benzin</li>
+                <li><strong>Transmission:</strong> Avtomat</li>
+                <li><strong>Rang:</strong> Oq</li>
+                <li><strong>Sotuvchi:</strong> Ali Valiyev</li>
+                <li><strong>Telefon:</strong> +998 90 123 45 67</li>
+                <li><strong>Shaxar:</strong> Seul</li>
+
+              </ul>
+              <p class="car-description">Mashina juda yaxshi holatda. O'z vaqtida texnik ko'rikdan o'tgan, yangi shinalar va xizmat ko'rsatish kitobi mavjud.</p>
+            </div>
+            
+            <!-- Button to show/hide more details -->
+            <button class="details-btn" onclick="toggleCardDetails(this)">To'liq ma'lumot</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Swipper script -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="./js/home.js"></script>
+  <!-- Login Logout -->
+   <script src="./js/login-logout.js"></script>
+</body>
+
+</html>

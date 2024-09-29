@@ -1,0 +1,255 @@
+/* Dashboard Section */
+.user-dashboard-section {
+    background: linear-gradient(135deg, #f6f7fb, #dfe9f3);
+    padding: 50px 0;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    animation: slideDown 1s ease-in-out;
+  }
+  
+  .ads-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .ad-card {
+    background: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .ad-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  }
+  
+  .ad-card h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+  }
+  
+  .no-ads-message {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .contact-admin-btn {
+    background-color: #28a745;
+  }
+  
+  .contact-admin-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: modalFadeIn 0.5s ease-in-out;
+  }
+  
+  .modal-content {
+    background: linear-gradient(135deg, #f6f8fa, #eaeef2);
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: modalContentPopUp 0.4s ease-in-out;
+  }
+  
+  .modal-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-content label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .modal-content textarea,
+  .modal-content input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #d1d9e6;
+    background-color: #f8faff;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  .modal-content textarea:focus,
+  .modal-content input:focus {
+    border-color: #007bff;
+    background-color: #fff;
+  }
+  
+  .modal-content .btn {
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .modal-content .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .modal-content .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+  }
+  
+  .modal-content .close:hover {
+    transform: rotate(90deg);
+    color: #ff4d4d;
+  }
+  
+  /* Animations */
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes modalContentPopUp {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .modal-content {
+      width: 95%;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+/* Success message */
+.success-message {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.success-message.show {
+  opacity: 1;
+}
+
+/* Hide initially */
+.hidden {
+  display: none;
+}
+  

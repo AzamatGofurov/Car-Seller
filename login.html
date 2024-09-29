@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AvtoBozor - Login yoki Ro'yxatdan o'tish</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/login.css">
+  
+  <!-- Ionicons for icons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4">
+      <a href="index.html" class="logo">
+        <img src="./image/Logo1.png" alt="AvtoBozor Logo" class="logo-img">
+      </a>
+      <nav class="navbar">
+        <ul class="navbar-list flex space-x-6 text-lg">
+          <li><a href="index.html" class="navbar-link flex items-center" id="home"><ion-icon name="home-outline" class="mr-1"></ion-icon> Bosh sahifa</a></li>
+          <li><a href="index.html/#cars" class="navbar-link flex items-center" id="cars"><ion-icon name="car-outline" class="mr-1"></ion-icon> Avtomobillar</a></li>
+          <li><a href="parts.html" class="navbar-link flex items-center" id="parts"><ion-icon name="build-outline" class="mr-1"></ion-icon> Avtozapchast</a></li>
+          <li><a href="addcar.html" class="navbar-link flex items-center" id="addCar"><ion-icon name="add-circle-outline" class="mr-1"></ion-icon> Mashina qo'shish</a></li>
+          <li><a href="login.html" class="navbar-link flex items-center" id="login-link">
+            <ion-icon name="log-in-outline" class="mr-1"></ion-icon> Login
+          </a></li>
+          <li><a href="#" id="logout-link" class="navbar-link" style="display: none;">Logout</a></li>
+          
+          <li><a href="contact.html" class="navbar-link flex items-center" id="contact"><ion-icon name="call-outline" class="mr-1"></ion-icon> Bog'lanish</a></li>
+        </ul>
+      </nav>
+      <!-- Menu icon for mobile -->
+      <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+    </div>
+  </header>
+
+  <!-- LOGIN / REGISTER SECTION -->
+  <section class="auth-container">
+    <div class="auth-wrapper">
+        <!-- Login Section -->
+        <div class="login-section" id="login-section">
+            <h2>Login qilish</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" placeholder="Email kiriting" required>
+                    <small class="error-message" id="login-email-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Parol:</label>
+                    <input type="password" id="login-password" placeholder="Parolingizni kiriting" required>
+                    <small class="error-message" id="login-password-error"></small>
+                </div>
+                <button type="submit" class="btn login-btn">Login</button>
+                <p class="switch-text">Sizda hali hisob yo'qmi? 
+                    <span class="switch-link" onclick="switchToRegister()">Ro'yxatdan o'tish</span>
+                </p>
+                <small id="login-success-message" class="success-message"></small>
+            </form>
+        </div>
+
+        <!-- Registration Section -->
+        <div class="register-section hidden" id="register-section">
+            <h2>Ro'yxatdan o'tish</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Ism:</label>
+                    <input type="text" id="register-name" placeholder="Ismingizni kiriting" required>
+                    <small class="error-message" id="register-name-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" placeholder="Email kiriting" required>
+                    <small class="error-message" id="register-email-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Parol:</label>
+                    <input type="password" id="register-password" placeholder="Parolingizni kiriting" required>
+                    <small class="error-message" id="register-password-error"></small>
+                </div>
+                <button type="submit" class="btn register-btn">Ro'yxatdan o'tish</button>
+                <p class="switch-text">Hisobingiz bormi? 
+                    <span class="switch-link" onclick="switchToLogin()">Login qilish</span>
+                </p>
+                <small id="register-success-message" class="success-message"></small>
+            </form>
+        </div>
+    </div>
+  </section>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="js/home.js"></script>
+  <script src="./js/login.js"></script>
+  <!-- Login LogOut-->
+  <script src="./js/login-logout.js"></script>
+
+
+</body>
+
+</html>

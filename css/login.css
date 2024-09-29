@@ -1,0 +1,269 @@
+/* Universal form styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #d8d8d8, #888888);
+    animation: gradientAnimation 5s infinite ease-in-out;
+}
+
+.auth-wrapper {
+    background: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    animation: slideIn 1s ease-in-out;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #af4261;
+    font-size: 1.8rem;
+    animation: fadeInText 1s ease-in;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+label {
+    font-weight: 500;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #af4261;
+    outline: none;
+    animation: inputFocusGlow 1.5s infinite alternate;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+
+.success-message {
+    display: none;
+    color: #28a745;
+    font-size: 1rem;
+    margin-top: 15px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background-color: #af4261;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #c12b4b;
+    transform: scale(1.05);
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.switch-link {
+    color: #af4261;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.switch-link:hover {
+    color: #c12b4b;
+}
+
+/* Success and Error Messages */
+.show-success {
+    display: block;
+    animation: successFadeIn 0.5s ease-in-out;
+}
+
+.show-error {
+    display: block;
+    animation: errorShake 0.5s ease-in-out;
+}
+.btn {
+    background-color: #009dffe9;
+    transition: all 0.3s;
+}
+.btn:hover {
+    color: #fff;
+    background-color: #0087dbe9
+}
+/* Animations */
+@keyframes gradientAnimation {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes inputFocusGlow {
+    from {
+        box-shadow: 0 0 5px rgba(175, 66, 97, 0.5);
+    }
+    to {
+        box-shadow: 0 0 15px rgba(175, 66, 97, 0.8);
+    }
+}
+
+@keyframes successFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes errorShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Form toggle animations */
+.hidden {
+    display: none;
+}
+
+
+/* Error va muvaffaqiyatli xabarlar uchun CSS */
+.show-error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.show-success {
+    color: green;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Hidden by default */
+.hidden {
+    display: none;
+}
+
+
+
+/* Custom alert box */
+.alert-box {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.alert-box.success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.alert-box.error {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Close button styles */
+.alert-box .close-alert-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* Hide alert with smooth transition */
+.hide-alert {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
